@@ -1,0 +1,20 @@
+1. Load
+
+ If there are N street names and S segments associated with each of them on average in the mapdata file, the time complexity turns out to be O(N*S) since all data retrieval and insertion is done in Expandable Hash Map, and average case will have a new bucket being filled every time a data insertion is made.
+
+2.getSegmentsThatStartWith
+
+ If the vector of streetSegment to be returned has a length of L, then the time complexity is O(L) since the correct vector is found in O(1) as it is part of a hashmap. The contents of this vector of length 'L' are then copied onto the vector 'segs' which is passed by reference in the parameter. Hence, finding the vector of length L is O(1) and copying it onto the parameter is O(L)
+
+3. generatePointToPointRoute
+ 
+ If there are G geoCordinates and S segments associated with each, then the time complexity is O(G*S), considering the case wherein all G points are visited, and we get S StreetSegments from each of them and iterate through each of those vectors. Thus, any case wherein the route is properly found will be a lower time complexity than above. Alternatively, G*S gives us N if N is the total number of street segments in the entire mapdata file. The cases where a route is found involves addition of terms that can be neglected. Thus, O(N) is the final time complexity.
+
+4. optimizeDeliveryOrder (Using simulated annealing)
+ a. doubles for initial temp, cooling rate and final temperature to be reached
+ b.Vectors of DeliveryRequest 
+
+ Used doubles for the initial temperature, cooling rate and the final temperature of the system (which are analogous to degree of randomness of the system-> in this case, the vector of destinations). A temporary Delivery Request variable is also made that is used to swap random indices in the vector of destinations to be visited, in order to generate a new random order. This generation of a new order takes place on a temporary vector of delivery requests, which is initially identical to the vector of delivery requests that is passed in the parameter. There is also the function calcCrow that is used to evaluate the total distance travelled on a point to point basis, for a given order of the vectors, with the distanceFromEarthMiles function. The function also uses a function from Project 3 to generate a pseudo random set of numbers to be used for the exponential function (which sometimes allows us to accept a slightly bad solution, in search for the best possible solution->moving away from a local minima in search of a global minima) and the generation of random indices.
+
+ 
+
