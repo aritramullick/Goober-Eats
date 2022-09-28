@@ -6,8 +6,10 @@ Makes use of the following concepts
 2. Loading streetmap data onto a C++ file
 3. Simulated Annealing for optimisation of the delivery routes
 # Usage
-`cd Goober-Eats`
-`make all`
-`./main  mapdata.txt deliveries.txt`
+```
+cd Goober-Eats
+make all
+./main  mapdata.txt deliveries.txt
+```
 In order to clean up the folder to have just the .cpp files
 `make clean`
