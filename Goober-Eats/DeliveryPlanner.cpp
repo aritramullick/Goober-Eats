@@ -250,7 +250,6 @@ DeliveryResult DeliveryPlannerImpl::generateDeliveryPlan(
 //******************** DeliveryPlanner functions ******************************
 
 // These functions simply delegate to DeliveryPlannerImpl's functions.
-// You probably don't want to change any of this code.
 
 DeliveryPlanner::DeliveryPlanner(const StreetMap* sm)
 {
