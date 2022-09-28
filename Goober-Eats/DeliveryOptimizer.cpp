@@ -66,7 +66,7 @@ void DeliveryOptimizerImpl::optimizeDeliveryOrder(const GeoCoord& depot, vector<
 		calcCrow(depot, newDistance, currOrder);
 		deltaDistance = newDistance - distance;
 		// either the newDistance is lower OR 
-		// we accept a slightly worse solution in order to not get stuck in a local minima
+		// we accept a slightly worse solution in order to prevent getting stuck in local optima
 		if (deltaDistance < 0 || ((distance > 0) &&
 		(double)exp(-deltaDistance / temperature) > randomNum)) {
 			for (int i = 0;i<currOrder.size();i++)
