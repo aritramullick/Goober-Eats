@@ -21,6 +21,7 @@ public:
 private:
 	/**
 	* Sets the dist variable to return an estimate of total distance of the trip with given ordering of deliveries
+	* Crow Distance defined to be the Euclidean Distance between any two points, so it is only an estimate of the cost
 	*/
 	void calcCrow(const GeoCoord depot, double &dist, const vector <DeliveryRequest> &deliveries) const {
 		double totalSum = 0;
@@ -61,6 +62,7 @@ void DeliveryOptimizerImpl::optimizeDeliveryOrder(const GeoCoord& depot, vector<
 		// random number generation
 		double randomNum = (double)randInt(0,1000);
 		randomNum = ((double)randomNum / 1000.00);
+		// generate randomly generated solution
 		generateNewOrder(currOrder);
 		double newDistance = 0;
 		calcCrow(depot, newDistance, currOrder);
@@ -73,6 +75,7 @@ void DeliveryOptimizerImpl::optimizeDeliveryOrder(const GeoCoord& depot, vector<
 				deliveries[i] = currOrder[i];
 			distance = distance + deltaDistance;
 		}
+		// Otherwise we reject the newly generated random solution
 		else
 			for (int i = 0; i < currOrder.size(); i++)
 				currOrder[i] = deliveries[i];
