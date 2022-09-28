@@ -5,11 +5,24 @@ Makes use of the following concepts
 1. Hash Maps
 2. Loading streetmap data onto a C++ file
 3. Simulated Annealing for optimisation of the delivery routes
-# Usage
+
+## Requirements
+
+1. g++ compiler   : To run Makefile on Unix based environment
+2. mapdata.txt    : Saved streetmap data of Westwood neighborhood
+3. deliveries.txt : Depot co-ordinates with list of deliveries (with co-ordinates) to be made 
+   
+## Usage
+
+Use the below lines on CLI in order to run sample test case.
+
 ```
 cd Goober-Eats
 make all
 ./main  mapdata.txt deliveries.txt
 ```
-In order to clean up the folder to have just the .cpp files
-`make clean`
+
+In order to clean up the folder to have just the `.cpp` and `.h` files
+```
+make clean
+```
