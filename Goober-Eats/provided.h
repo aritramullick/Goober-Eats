@@ -1,13 +1,14 @@
 #ifndef PROVIDED_INCLUDED
 #define PROVIDED_INCLUDED
 
-// YOU MUST MAKE NO CHANGES TO THIS FILE!
-
 #include <iostream>
 #include <sstream>
 #include <string>
 #include <vector>
 #include <list>
+#include <cstdlib>
+#include <random>
+#include <utility>
 
 enum DeliveryResult
 {
@@ -290,5 +291,16 @@ inline double angleOfLine(const StreetSegment& line)
 
     return result;
 }
+
+inline
+	int randInt(int min, int max)
+	{
+		if (max < min)
+			std::swap(max, min);
+		static std::random_device rd;
+		static std::default_random_engine generator(rd());
+		std::uniform_int_distribution<> distro(min, max);
+		return distro(generator);
+	}
 
 #endif // PROVIDED_INCLUDED

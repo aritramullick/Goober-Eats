@@ -21,7 +21,7 @@ public:
     bool load(string mapFile);
     bool getSegmentsThatStartWith(const GeoCoord& gc, vector<StreetSegment>& segs) const;
 private:
-    ExpandableHashMap <GeoCoord,vector<StreetSegment>> map;
+    ExpandableHashMap <GeoCoord,vector<StreetSegment> > map;
 };
 
 StreetMapImpl::StreetMapImpl()
